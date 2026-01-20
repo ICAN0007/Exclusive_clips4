@@ -23,23 +23,15 @@ const VideoPlayer = ({ video, onBack, onVideoClick }: VideoPlayerProps) => {
       </div>
 
       <div className="pt-20 px-8 pb-20 max-w-[1400px] mx-auto">
-        {/* Video Player */}
-        <div className="relative">
-          <div className="relative w-full pb-[56.25%] mb-8">
-            <iframe
-              src={video.src}
-              className="absolute top-0 left-0 w-full h-full rounded-3xl"
-              frameBorder="0"
-              allowFullScreen
-              allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-            />
-          </div>
-          
-          {/* Live viewers badge */}
-          <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-xl px-4 py-2 rounded-full text-sm">
-            <span className="text-coral mr-2">●</span>
-            12.4K watching live
-          </div>
+      {/* Video Player */}
+        <div className="relative w-full pb-[56.25%] mb-8">
+          <iframe
+            src={video.src}
+            className="absolute top-0 left-0 w-full h-full rounded-3xl"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          />
         </div>
 
         {/* Video details */}
