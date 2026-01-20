@@ -14,16 +14,27 @@ const VideoPlayer = ({ video, onBack, onVideoClick }: VideoPlayerProps) => {
 
   return (
     <div className="fixed inset-0 bg-black z-[2000] overflow-y-auto">
-      {/* Back button */}
-      <div className="fixed top-4 left-8 z-[2001]">
-        <Button variant="back" onClick={onBack} className="flex items-center gap-2">
-          <ArrowLeft className="w-5 h-5" />
-          Back
-        </Button>
+      {/* Header bar with back button and logo */}
+      <div className="fixed top-0 left-0 right-0 z-[2001] bg-black/90 backdrop-blur-xl border-b border-white/10">
+        <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
+          <Button variant="back" onClick={onBack} className="flex items-center gap-2">
+            <ArrowLeft className="w-5 h-5" />
+            Back
+          </Button>
+          
+          {/* Website name */}
+          <div className="text-xl font-black flex items-center gap-1">
+            <span className="neon-glow">🔥</span>
+            <span className="gradient-text">EXCLUSIVE</span>
+            <span className="gradient-text neon-glow">CONTENT</span>
+          </div>
+          
+          <div className="w-20" /> {/* Spacer for centering */}
+        </div>
       </div>
 
-      <div className="pt-20 px-8 pb-20 max-w-[1400px] mx-auto">
-      {/* Video Player */}
+      <div className="pt-24 px-8 pb-20 max-w-[1400px] mx-auto">
+        {/* Video Player */}
         <div className="relative w-full pb-[56.25%] mb-8">
           <iframe
             src={video.src}
