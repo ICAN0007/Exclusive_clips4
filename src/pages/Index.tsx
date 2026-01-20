@@ -3,6 +3,7 @@ import ParticleCanvas from '@/components/ParticleCanvas';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import VideoGrid from '@/components/VideoGrid';
+import RecommendedSection from '@/components/RecommendedSection';
 import VideoPlayer from '@/components/VideoPlayer';
 import { videos, Video } from '@/data/videos';
 
@@ -50,6 +51,7 @@ const Index = () => {
           videos={filteredVideos} 
           onVideoClick={handleVideoClick}
         />
+        <RecommendedSection onVideoClick={handleVideoClick} />
       </main>
 
       {selectedVideo && (
