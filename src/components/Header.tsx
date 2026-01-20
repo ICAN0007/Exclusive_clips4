@@ -4,11 +4,13 @@ import { Button } from '@/components/ui/button';
 interface HeaderProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
+  selectedCategory: string;
+  onCategoryChange: (category: string) => void;
 }
 
 const categories = ['All', 'Trending', 'Premium', '4K', 'New', 'Popular'];
 
-const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
+const Header = ({ searchQuery, onSearchChange, selectedCategory, onCategoryChange }: HeaderProps) => {
   return (
     <header className="fixed top-0 w-full bg-black/95 backdrop-blur-xl z-[1000] border-b border-[rgba(255,255,255,0.2)]">
       <div className="max-w-[1400px] mx-auto px-[5%] py-4 flex flex-col gap-4">
@@ -50,11 +52,12 @@ const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
 
         {/* Category tags */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <button
               key={category}
+              onClick={() => onCategoryChange(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                index === 0 
+                selectedCategory === category 
                   ? 'bg-gradient-to-r from-coral to-gold text-white' 
                   : 'bg-white/10 text-muted-foreground hover:bg-white/20 hover:text-foreground'
               }`}

@@ -10,16 +10,29 @@ import { videos, Video } from '@/data/videos';
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredVideos = useMemo(() => {
-    if (!searchQuery.trim()) return videos;
+    let result = videos;
     
-    const query = searchQuery.toLowerCase();
-    return videos.filter(video => 
-      video.title.toLowerCase().includes(query) ||
-      video.tags.some(tag => tag.toLowerCase().includes(query))
-    );
-  }, [searchQuery]);
+    // Filter by category
+    if (selectedCategory !== 'All') {
+      result = result.filter(video => 
+        video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase())
+      );
+    }
+    
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(video => 
+        video.title.toLowerCase().includes(query) ||
+        video.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+    }
+    
+    return result;
+  }, [searchQuery, selectedCategory]);
 
   const handleScrollToVideos = () => {
     document.getElementById('videos-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -42,7 +55,9 @@ const Index = () => {
       
       <Header 
         searchQuery={searchQuery} 
-        onSearchChange={setSearchQuery} 
+        onSearchChange={setSearchQuery}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
       />
 
       <main className="max-w-[1400px] mx-auto px-[5%] pb-24 relative z-10">
