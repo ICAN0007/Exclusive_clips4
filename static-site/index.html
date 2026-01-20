@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Exclusive premium content streaming platform">
+  <title>Exclusive Content - Premium Streaming</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">EXCLUSIVE</span>
+      </a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search videos..." class="search-input">
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary">Upload</button>
+        <button class="btn btn-primary">Sign In</button>
+      </div>
+    </div>
+    <div class="categories" id="categories">
+      <!-- Categories will be populated by JS -->
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title">
+      <span class="gradient-text">EXCLUSIVE</span> CONTENT
+    </h1>
+    <p class="hero-subtitle">Premium streaming experience with ultra HD quality</p>
+    <button class="btn btn-primary btn-large" onclick="scrollToVideos()">
+      Explore Now
+    </button>
+  </section>
+
+  <!-- Videos Section -->
+  <section class="videos-section" id="videos-section">
+    <h2 class="section-title gradient-text">🔥 TRENDING NOW</h2>
+    <div class="video-grid" id="videoGrid">
+      <!-- Videos will be populated by JS -->
+    </div>
+  </section>
+
+  <!-- Recommended Section -->
+  <section class="recommended-section">
+    <h2 class="section-title gradient-text">✨ RECOMMENDED FOR YOU</h2>
+    <p class="section-subtitle">Handpicked selections based on what's popular and trending.</p>
+    <div class="video-grid" id="recommendedGrid">
+      <!-- Recommended videos will be populated by JS -->
+    </div>
+  </section>
+
+  <!-- Video Player Modal -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="video-container">
+        <iframe id="videoFrame" src="" allowfullscreen></iframe>
+      </div>
+      <div class="video-info">
+        <h3 id="videoTitle"></h3>
+        <div class="video-meta">
+          <span id="videoDuration"></span>
+          <span id="videoViews"></span>
+        </div>
+        <div class="video-tags" id="videoTags"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Exclusive Content. All rights reserved.</p>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
