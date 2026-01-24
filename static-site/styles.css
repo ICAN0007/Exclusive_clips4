@@ -351,15 +351,10 @@ body {
 /* ========================================
    SECTIONS
    ======================================== */
-.videos-section,
-.recommended-section {
+.videos-section {
   padding: 4rem 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.recommended-section {
-  border-top: 1px solid var(--border-color);
 }
 
 .section-title {
@@ -759,8 +754,7 @@ body {
     font-size: 1rem;
   }
   
-  .videos-section,
-  .recommended-section {
+  .videos-section {
     padding: 2.5rem 1rem;
   }
   
