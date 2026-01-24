@@ -9,6 +9,7 @@ let selectedCategory = 'All';
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
   loadData();
+  setupMobileMenu();
 });
 
 // Load JSON data
@@ -104,6 +105,11 @@ function createVideoCard(video) {
       <div class="video-thumb">
         <img src="${video.thumb}" alt="${video.title}" loading="lazy">
         <span class="video-duration">${formatDuration(video.duration)}</span>
+        <div class="play-button-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
       </div>
       <div class="video-overlay">
         <h3 class="video-card-title">${video.title}</h3>
@@ -116,6 +122,7 @@ function createVideoCard(video) {
 // Setup search
 function setupSearch() {
   const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
   let debounceTimer;
   
   searchInput.addEventListener('input', (e) => {
@@ -124,21 +131,73 @@ function setupSearch() {
       renderVideos(e.target.value);
     }, 300);
   });
+
+  // Mobile search button
+  if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      const searchBox = document.querySelector('.search-box');
+      searchBox.classList.toggle('mobile-visible');
+      if (searchBox.classList.contains('mobile-visible')) {
+        searchInput.focus();
+      }
+    });
+  }
 }
 
-// Open video modal
+// Setup mobile menu
+function setupMobileMenu() {
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('closeMobileMenu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', closeMobileMenu);
+    
+    // Close on backdrop click
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMobileMenu();
+      }
+    });
+  }
+}
+
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Open video modal with Bunny.net responsive embed
 function openVideo(videoId) {
   const video = videosData.find(v => v.id === videoId);
   if (!video) return;
   
   const modal = document.getElementById('videoModal');
-  const videoFrame = document.getElementById('videoFrame');
+  const videoContainer = document.getElementById('videoContainer');
   const videoTitle = document.getElementById('videoTitle');
   const videoDuration = document.getElementById('videoDuration');
   const videoViews = document.getElementById('videoViews');
   const videoTags = document.getElementById('videoTags');
   
-  videoFrame.src = video.src;
+  // Create responsive Bunny.net embed
+  videoContainer.innerHTML = `
+    <div style="position:relative;padding-top:56.25%;">
+      <iframe 
+        src="${video.src}" 
+        loading="lazy" 
+        style="border:0;position:absolute;top:0;height:100%;width:100%;" 
+        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+        allowfullscreen="true">
+      </iframe>
+    </div>
+  `;
+  
   videoTitle.textContent = video.title;
   videoDuration.textContent = `Duration: ${formatDuration(video.duration)}`;
   videoViews.textContent = `${video.views} views`;
@@ -153,10 +212,10 @@ function openVideo(videoId) {
 // Close video modal
 function closeModal() {
   const modal = document.getElementById('videoModal');
-  const videoFrame = document.getElementById('videoFrame');
+  const videoContainer = document.getElementById('videoContainer');
   
   modal.classList.remove('active');
-  videoFrame.src = '';
+  videoContainer.innerHTML = ''; // Stop video playback
   document.body.style.overflow = '';
 }
 
@@ -164,6 +223,7 @@ function closeModal() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeModal();
+    closeMobileMenu();
   }
 });
 
