@@ -22,7 +22,6 @@ async function loadData() {
     
     renderCategories();
     renderVideos();
-    renderRecommended();
     setupSearch();
   } catch (error) {
     console.error('Error loading data:', error);
@@ -83,20 +82,6 @@ function renderVideos(searchQuery = '') {
   container.innerHTML = filtered.map(video => createVideoCard(video)).join('');
 }
 
-// Render recommended videos
-function renderRecommended() {
-  const container = document.getElementById('recommendedGrid');
-  
-  // Shuffle videos for recommendations
-  const shuffled = [...videosData].sort(() => Math.random() - 0.5);
-  
-  container.innerHTML = shuffled.map(video => `
-    <div class="video-card-wrapper">
-      <div class="recommended-badge">✨ Recommended</div>
-      ${createVideoCard(video)}
-    </div>
-  `).join('');
-}
 
 // Create video card HTML
 function createVideoCard(video) {
