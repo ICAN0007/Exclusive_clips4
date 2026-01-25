@@ -8,9 +8,31 @@ let selectedCategory = 'All';
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
+  setupAgeGate();
   loadData();
   setupMobileMenu();
 });
+
+// Age Gate functionality
+function setupAgeGate() {
+  const overlay = document.getElementById('ageGateOverlay');
+  const enterBtn = document.getElementById('enterSiteBtn');
+  
+  // Check if user already verified
+  const isVerified = localStorage.getItem('ageVerified');
+  
+  if (isVerified) {
+    overlay.classList.add('hidden');
+  } else {
+    document.body.classList.add('no-scroll');
+  }
+  
+  enterBtn.addEventListener('click', () => {
+    localStorage.setItem('ageVerified', 'true');
+    overlay.classList.add('hidden');
+    document.body.classList.remove('no-scroll');
+  });
+}
 
 // Load JSON data
 async function loadData() {
