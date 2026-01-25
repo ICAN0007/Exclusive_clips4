@@ -192,17 +192,15 @@ function openVideo(videoId) {
   const videoViews = document.getElementById('videoViews');
   const videoTags = document.getElementById('videoTags');
   
-  // Create responsive Bunny.net embed
+  // Create fullscreen Bunny.net embed
   videoContainer.innerHTML = `
-    <div style="position:relative;padding-top:56.25%;">
-      <iframe 
-        src="${video.src}" 
-        loading="lazy" 
-        style="border:0;position:absolute;top:0;height:100%;width:100%;" 
-        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-        allowfullscreen="true">
-      </iframe>
-    </div>
+    <iframe 
+      src="${video.src}" 
+      loading="lazy" 
+      style="border:0;width:100%;height:100%;background:#000000;" 
+      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+      allowfullscreen="true">
+    </iframe>
   `;
   
   videoTitle.textContent = video.title;
