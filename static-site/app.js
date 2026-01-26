@@ -1,5 +1,5 @@
 // ========================================
-// EXCLUSIVE CONTENT - MAIN JAVASCRIPT
+// EXCLUSIVECLIPS4 - MAIN JAVASCRIPT
 // ========================================
 
 let videosData = [];
