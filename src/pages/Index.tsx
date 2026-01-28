@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import ParticleCanvas from '@/components/ParticleCanvas';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -11,8 +12,23 @@ const Index = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  const { data: videosFromJson } = useQuery({
+    queryKey: ['videos-json'],
+    queryFn: async (): Promise<Video[]> => {
+      const res = await fetch('/videos.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`Failed to load videos.json: ${res.status}`);
+      const json = await res.json();
+      if (Array.isArray(json)) return json as Video[];
+      return (json?.videos ?? []) as Video[];
+    },
+    staleTime: Infinity,
+    retry: 1,
+  });
+
+  const allVideos = videosFromJson?.length ? videosFromJson : videos;
+
   const filteredVideos = useMemo(() => {
-    let result = videos;
+    let result = allVideos;
     
     // Filter by category
     if (selectedCategory !== 'All') {
@@ -31,14 +47,14 @@ const Index = () => {
     }
     
     return result;
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, allVideos]);
 
   const handleScrollToVideos = () => {
     document.getElementById('videos-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleVideoClick = (id: string) => {
-    const video = videos.find(v => v.id === id);
+    const video = allVideos.find(v => v.id === id);
     if (video) {
       setSelectedVideo(video);
     }
@@ -70,6 +86,7 @@ const Index = () => {
       {selectedVideo && (
         <VideoPlayer 
           video={selectedVideo}
+          allVideos={allVideos}
           onBack={handleBack}
           onVideoClick={handleVideoClick}
         />
