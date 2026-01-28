@@ -1,15 +1,16 @@
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Video, formatDuration, videos as allVideos } from '@/data/videos';
+import { Video, formatDuration } from '@/data/videos';
 import VideoCard from './VideoCard';
 
 interface VideoPlayerProps {
   video: Video;
+  allVideos: Video[];
   onBack: () => void;
   onVideoClick: (id: string) => void;
 }
 
-const VideoPlayer = ({ video, onBack, onVideoClick }: VideoPlayerProps) => {
+const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProps) => {
   const relatedVideos = allVideos.filter(v => v.id !== video.id);
 
   return (

@@ -3,9 +3,11 @@ export interface Video {
   title: string;
   thumb: string;
   src: string;
-  duration: number;
+  duration: number | string;
   views: string;
   tags: string[];
+  hls?: string;
+  embed?: string;
 }
 
 export const videos: Video[] = [
@@ -38,7 +40,8 @@ export const videos: Video[] = [
   }
 ];
 
-export const formatDuration = (secs: number): string => {
-  const m = Math.floor(secs / 60);
-  return `${m}:${(secs % 60).toString().padStart(2, '0')}`;
+export const formatDuration = (duration: Video['duration']): string => {
+  if (typeof duration === 'string') return duration;
+  const m = Math.floor(duration / 60);
+  return `${m}:${(duration % 60).toString().padStart(2, '0')}`;
 };
