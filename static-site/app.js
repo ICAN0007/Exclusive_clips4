@@ -50,10 +50,13 @@ async function loadData() {
   }
 }
 
-// Format duration from seconds to MM:SS
-function formatDuration(seconds) {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
+// Format duration - handles both seconds (number) and string format (MM:SS)
+function formatDuration(duration) {
+  if (typeof duration === 'string') {
+    return duration; // Already formatted
+  }
+  const mins = Math.floor(duration / 60);
+  const secs = duration % 60;
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
