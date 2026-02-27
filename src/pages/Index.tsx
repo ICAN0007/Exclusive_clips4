@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import VideoGrid from '@/components/VideoGrid';
 import VideoPlayer from '@/components/VideoPlayer';
+import Footer from '@/components/Footer';
 import { videos, Video } from '@/data/videos';
 
 const Index = () => {
