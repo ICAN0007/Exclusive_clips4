@@ -64,6 +64,12 @@ const Index = () => {
     document.getElementById('videos-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleTagClick = (tag: string) => {
+    setSelectedCategory(tag);
+    setSearchQuery('');
+    document.getElementById('videos-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const handleVideoClick = (id: string) => {
     const video = allVideos.find(v => v.id === id);
     if (video) {
