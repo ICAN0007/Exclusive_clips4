@@ -84,6 +84,8 @@ const Index = () => {
         />
       </main>
 
+      <Footer />
+
       {selectedVideo && (
         <VideoPlayer 
           video={selectedVideo}
