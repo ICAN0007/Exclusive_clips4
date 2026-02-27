@@ -100,6 +100,26 @@ const Index = () => {
         />
       </main>
 
+      {/* Tags Section */}
+      <section className="max-w-[1400px] mx-auto px-[5%] pb-12 relative z-10">
+        <h3 className="text-xl font-bold text-foreground mb-4">Browse by Tags</h3>
+        <div className="flex flex-wrap gap-2">
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => handleTagClick(tag)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                selectedCategory === tag
+                  ? 'bg-gradient-to-r from-coral to-gold text-white'
+                  : 'bg-white/10 text-muted-foreground hover:bg-white/20 hover:text-foreground'
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </section>
+
       <Footer />
 
       {selectedVideo && (
