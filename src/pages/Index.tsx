@@ -34,7 +34,8 @@ const Index = () => {
     // Filter by category
     if (selectedCategory !== 'All') {
       result = result.filter(video => 
-        video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase())
+        video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase()) ||
+        video.categories?.some(cat => cat.toLowerCase() === selectedCategory.toLowerCase())
       );
     }
     
