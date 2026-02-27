@@ -26,14 +26,29 @@ const VideoCard = ({ video, onClick }: VideoCardProps) => {
         </span>
       </div>
 
-      {/* Overlay with info */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent p-6 pt-12">
-        <h3 className="text-lg font-bold line-clamp-2 mb-2">
+      {/* Info section */}
+      <div className="p-4 space-y-2">
+        <h3 className="text-sm font-bold line-clamp-2">
           {video.title}
         </h3>
-        <div className="text-muted-foreground text-sm">
-          {video.views} views
-        </div>
+        {video.views && (
+          <div className="text-muted-foreground text-xs">
+            {video.views} views
+          </div>
+        )}
+        {/* Tags */}
+        {video.tags && video.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {video.tags.slice(0, 4).map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/10 text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

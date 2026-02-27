@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import VideoGrid from '@/components/VideoGrid';
 import VideoPlayer from '@/components/VideoPlayer';
+import Footer from '@/components/Footer';
 import { videos, Video } from '@/data/videos';
 
 const Index = () => {
@@ -33,7 +34,8 @@ const Index = () => {
     // Filter by category
     if (selectedCategory !== 'All') {
       result = result.filter(video => 
-        video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase())
+        video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase()) ||
+        video.categories?.some(cat => cat.toLowerCase() === selectedCategory.toLowerCase())
       );
     }
     
@@ -82,6 +84,8 @@ const Index = () => {
           onVideoClick={handleVideoClick}
         />
       </main>
+
+      <Footer />
 
       {selectedVideo && (
         <VideoPlayer 
