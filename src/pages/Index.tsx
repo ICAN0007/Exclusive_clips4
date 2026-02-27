@@ -28,6 +28,15 @@ const Index = () => {
 
   const allVideos = videosFromJson?.length ? videosFromJson : videos;
 
+  const allTags = useMemo(() => {
+    const tagSet = new Set<string>();
+    allVideos.forEach(v => {
+      v.tags?.forEach(t => tagSet.add(t));
+      v.categories?.forEach(c => tagSet.add(c));
+    });
+    return Array.from(tagSet).sort();
+  }, [allVideos]);
+
   const filteredVideos = useMemo(() => {
     let result = allVideos;
     
