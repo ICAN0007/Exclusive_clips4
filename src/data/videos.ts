@@ -4,8 +4,10 @@ export interface Video {
   thumb: string;
   src: string;
   duration: number | string;
-  views: string;
+  views?: string;
   tags: string[];
+  categories?: string[];
+  addedAt?: string;
   hls?: string;
   embed?: string;
 }
