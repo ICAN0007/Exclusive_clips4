@@ -19,8 +19,7 @@ const Header = ({ searchQuery, onSearchChange, selectedCategory, onCategoryChang
           {/* Logo */}
           <div className="text-[clamp(1.4rem,3vw,2rem)] font-black flex items-center gap-1">
             <span className="neon-glow">🔥</span>
-            <span className="gradient-text">EXCLUSIVE</span>
-            <span className="gradient-text neon-glow">CONTENT</span>
+            <span className="gradient-text neon-glow">Exclusiveclips4</span>
           </div>
 
           {/* Search */}
