@@ -22,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AgeVerification />
       <BrowserRouter>
         <SidebarProvider>
           <div className="min-h-screen flex w-full">
@@ -34,8 +35,7 @@ const App = () => (
                 </SidebarTrigger>
                 <div className="text-xl font-black flex items-center gap-1">
                   <span>🔥</span>
-                  <span className="gradient-text">EXCLUSIVE</span>
-                  <span className="gradient-text">CONTENT</span>
+                   <span className="gradient-text">Exclusiveclips4</span>
                 </div>
               </header>
               
