@@ -6,6 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import VideoGrid from '@/components/VideoGrid';
 import VideoPlayer from '@/components/VideoPlayer';
 import Footer from '@/components/Footer';
+import { SideBannerAd } from '@/components/AdScripts';
 import { videos, Video } from '@/data/videos';
 
 const Index = () => {
@@ -39,16 +40,12 @@ const Index = () => {
 
   const filteredVideos = useMemo(() => {
     let result = allVideos;
-    
-    // Filter by category
     if (selectedCategory !== 'All') {
       result = result.filter(video => 
         video.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase()) ||
         video.categories?.some(cat => cat.toLowerCase() === selectedCategory.toLowerCase())
       );
     }
-    
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       result = result.filter(video => 
@@ -56,7 +53,6 @@ const Index = () => {
         video.tags.some(tag => tag.toLowerCase().includes(query))
       );
     }
-    
     return result;
   }, [searchQuery, selectedCategory, allVideos]);
 
@@ -72,14 +68,10 @@ const Index = () => {
 
   const handleVideoClick = (id: string) => {
     const video = allVideos.find(v => v.id === id);
-    if (video) {
-      setSelectedVideo(video);
-    }
+    if (video) setSelectedVideo(video);
   };
 
-  const handleBack = () => {
-    setSelectedVideo(null);
-  };
+  const handleBack = () => setSelectedVideo(null);
 
   return (
     <>
@@ -94,11 +86,38 @@ const Index = () => {
 
       <main className="max-w-[1400px] mx-auto px-[5%] pb-24 relative z-10">
         <HeroSection onScrollToVideos={handleScrollToVideos} />
-        <VideoGrid 
-          videos={filteredVideos} 
-          onVideoClick={handleVideoClick}
-        />
+        
+        <div className="flex gap-6">
+          <div className="flex-1">
+            <VideoGrid videos={filteredVideos} onVideoClick={handleVideoClick} />
+          </div>
+          <aside className="hidden lg:block w-[160px] shrink-0 pt-20">
+            <SideBannerAd />
+          </aside>
+        </div>
       </main>
+
+      {/* Browse Sections */}
+      <section className="max-w-[1400px] mx-auto px-[5%] pb-8 relative z-10">
+        <h3 className="text-xl font-bold text-foreground mb-4">Browse</h3>
+        <div className="flex flex-wrap gap-3">
+          {[
+            { label: '🔥 Trending', href: '/trending' },
+            { label: '👁️ Most Viewed', href: '/most-viewed' },
+            { label: '⏰ New Releases', href: '/new-releases' },
+            { label: '⭐ Top Rated', href: '/top-rated' },
+            { label: '📈 Popular', href: '/popular' },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-5 py-2.5 rounded-full text-sm font-bold bg-white/10 text-foreground hover:bg-gradient-to-r hover:from-coral hover:to-gold hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </section>
 
       {/* Tags Section */}
       <section className="max-w-[1400px] mx-auto px-[5%] pb-12 relative z-10">

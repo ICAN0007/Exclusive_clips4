@@ -32,7 +32,14 @@ const AgeVerification = () => {
         >
           I'm 21 or older &rsaquo;
         </button>
-        <p className="mt-6 text-muted-foreground text-sm">Age Verification FAQ</p>
+        <a 
+          href="https://agechecker.net/age-verification-explained" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-6 text-muted-foreground text-sm hover:text-foreground transition-colors underline inline-block"
+        >
+          Age Verification FAQ
+        </a>
       </div>
     </div>
   );

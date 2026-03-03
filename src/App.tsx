@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Menu } from "lucide-react";
 import AppSidebar from "./components/AppSidebar";
 import AgeVerification from "./components/AgeVerification";
+import { PopunderAd, SocialBarAd, SmartlinkBanner } from "./components/AdScripts";
 import Index from "./pages/Index";
 import Trending from "./pages/Trending";
 import MostViewed from "./pages/MostViewed";
@@ -24,6 +25,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <AgeVerification />
+      <PopunderAd />
+      <SocialBarAd />
       <BrowserRouter>
         <SidebarProvider>
           <div className="min-h-screen flex w-full">
@@ -39,6 +42,9 @@ const App = () => (
                    <span className="gradient-text">Exclusiveclips4</span>
                 </div>
               </header>
+
+              {/* Smartlink banner */}
+              <SmartlinkBanner />
               
               {/* Main content */}
               <main className="flex-1">
