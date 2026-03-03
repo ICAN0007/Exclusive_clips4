@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Menu } from "lucide-react";
 import AppSidebar from "./components/AppSidebar";
+import AgeVerification from "./components/AgeVerification";
 import Index from "./pages/Index";
 import Trending from "./pages/Trending";
 import MostViewed from "./pages/MostViewed";
@@ -22,6 +23,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AgeVerification />
       <BrowserRouter>
         <SidebarProvider>
           <div className="min-h-screen flex w-full">
@@ -34,8 +36,7 @@ const App = () => (
                 </SidebarTrigger>
                 <div className="text-xl font-black flex items-center gap-1">
                   <span>🔥</span>
-                  <span className="gradient-text">EXCLUSIVE</span>
-                  <span className="gradient-text">CONTENT</span>
+                   <span className="gradient-text">Exclusiveclips4</span>
                 </div>
               </header>
               

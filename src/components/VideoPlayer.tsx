@@ -26,8 +26,7 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
           {/* Website name */}
           <div className="text-xl font-black flex items-center gap-1">
             <span className="neon-glow">🔥</span>
-            <span className="gradient-text">EXCLUSIVE</span>
-            <span className="gradient-text neon-glow">CONTENT</span>
+             <span className="gradient-text neon-glow">Exclusiveclips4</span>
           </div>
           
           <div className="w-20" /> {/* Spacer for centering */}
@@ -37,13 +36,13 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
       <div className="pt-24 px-8 pb-20 max-w-[1400px] mx-auto">
         {/* Video Player */}
         <div className="relative w-full pb-[56.25%] mb-8">
-          <iframe
-            src={video.src}
-            className="absolute top-0 left-0 w-full h-full rounded-3xl"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-          />
+           <iframe
+             src={video.src}
+             className="absolute top-0 left-0 w-full h-full rounded-none"
+             frameBorder="0"
+             allowFullScreen
+             allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+           />
         </div>
 
         {/* Video details */}
