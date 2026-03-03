@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Menu } from "lucide-react";
 import AppSidebar from "./components/AppSidebar";
+import AgeVerification from "./components/AgeVerification";
 import Index from "./pages/Index";
 import Trending from "./pages/Trending";
 import MostViewed from "./pages/MostViewed";
