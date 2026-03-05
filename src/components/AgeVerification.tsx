@@ -20,7 +20,7 @@ const AgeVerification = () => {
   if (verified) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-background/95 backdrop-blur-xl">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-end bg-background/95 backdrop-blur-xl pb-16">
       <div className="text-center max-w-md mx-auto px-6">
         <h1 className="text-4xl font-black text-foreground mb-4">Age Verification</h1>
         <p className="text-muted-foreground mb-8 text-base">
