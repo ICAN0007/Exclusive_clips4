@@ -12,7 +12,7 @@ const VideoCard = ({ video, onClick }: VideoCardProps) => {
       className="relative rounded-3xl overflow-hidden glass-card cursor-pointer transition-all duration-500 hover:-translate-y-6 hover:border-coral hover:shadow-[0_0_30px_hsla(0,85%,71%,0.5),0_25px_50px_rgba(0,0,0,0.5)] group"
     >
       {/* Thumbnail */}
-      <div className="relative overflow-hidden h-[200px]">
+      <div className="relative overflow-hidden" style={{ aspectRatio: '510 / 290' }}>
         <img 
           src={video.thumb} 
           alt={video.title}
