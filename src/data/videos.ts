@@ -39,6 +39,106 @@ export const videos: Video[] = [
     duration: 1560,
     views: "3.2M",
     tags: ["4K", "Bunny Stream", "Professional", "Exclusive"]
+  },
+  {
+    id: "foreign1",
+    title: "A Night to Remember in Cozy Hotel Room Vibes",
+    thumb: "https://files.catbox.moe/dcdqz8.png",
+    src: "https://files.catbox.moe/4l4mh5.mp4",
+    duration: "12:30",
+    views: "7.5k",
+    tags: ["romantic", "cozy", "vibes"],
+    categories: ["Foreign", "Brazz"]
+  },
+  {
+    id: "foreign2",
+    title: "Bella – The Dreamy Stepsister Everyone Adores",
+    thumb: "https://files.catbox.moe/tkxz24.png",
+    src: "https://files.catbox.moe/z0ig0s.mp4",
+    duration: "15:45",
+    views: "5.8k",
+    tags: ["close", "connection", "youthful"],
+    categories: ["Foreign", "Brazz"]
+  },
+  {
+    id: "foreign3",
+    title: "Blonde Beauty Enjoys a Passionate Getaway",
+    thumb: "https://files.catbox.moe/0goda1.jpg",
+    src: "https://files.catbox.moe/idzjb5.mp4",
+    duration: "18:20",
+    views: "3.7k",
+    tags: ["romantic", "adventure"],
+    categories: ["Foreign", "Vix"]
+  },
+  {
+    id: "foreign4",
+    title: "Second Date Sparks an Unforgettable Adventure",
+    thumb: "https://files.catbox.moe/mw1fzd.png",
+    src: "https://files.catbox.moe/afn4mh.mp4",
+    duration: "14:10",
+    views: "4.7k",
+    tags: ["spontaneous", "energy"],
+    categories: ["Foreign", "Vix"]
+  },
+  {
+    id: "foreign5",
+    title: "24 Hours of Pure Connection",
+    thumb: "https://files.catbox.moe/epwbfb.png",
+    src: "https://files.catbox.moe/1defn5.mp4",
+    duration: "22:15",
+    views: "7.2k",
+    tags: ["group", "moments", "energy"],
+    categories: ["Foreign", "Vix"]
+  },
+  {
+    id: "foreign6",
+    title: "Unexpected Teamwork Makes the Day Special",
+    thumb: "https://files.catbox.moe/fiadbm.png",
+    src: "https://files.catbox.moe/twmh5i.mp4",
+    duration: "16:40",
+    views: "8.2k",
+    tags: ["team", "energy"],
+    categories: ["Foreign", "Brazz"]
+  },
+  {
+    id: "foreign7",
+    title: "She Couldn't Hide Her Excitement on the Trip",
+    thumb: "https://files.catbox.moe/8x0og0.png",
+    src: "https://files.catbox.moe/8tqjpa.mp4",
+    duration: "19:55",
+    views: "4.9k",
+    tags: ["adventure", "journey"],
+    categories: ["Foreign", "Vix"]
+  },
+  {
+    id: "foreign8",
+    title: "Caring Nurse Brings Extra Comfort to Her Patient",
+    thumb: "https://files.catbox.moe/prszz0.png",
+    src: "https://files.catbox.moe/leivs9.mp4",
+    duration: "13:25",
+    views: "6.3k",
+    tags: ["care", "comfort", "youthful"],
+    categories: ["Foreign", "Brazz"]
+  },
+  {
+    id: "foreign9",
+    title: "Spoiled Princess Lives Her Best Playful Days",
+    thumb: "https://files.catbox.moe/1b1f7x.png",
+    src: "https://files.catbox.moe/otw0qt.mp4",
+    duration: "17:30",
+    views: "5.4k",
+    tags: ["friends", "playful"],
+    categories: ["Foreign", "Vix"]
+  },
+  {
+    id: "foreign10",
+    title: "Three Friends Share an Unforgettable Night of Fun",
+    thumb: "https://files.catbox.moe/a7lf34.jpg",
+    src: "https://files.catbox.moe/kwu0vd.mp4",
+    duration: "21:10",
+    views: "7.8k",
+    tags: ["group", "fun", "moments"],
+    categories: ["Foreign", "Brazz"]
   }
 ];
 
