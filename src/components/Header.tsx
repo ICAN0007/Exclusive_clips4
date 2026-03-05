@@ -8,7 +8,7 @@ interface HeaderProps {
   onCategoryChange: (category: string) => void;
 }
 
-const categories = ['All', 'Indian', 'Trending', 'Premium', '4K', 'New', 'Popular'];
+const categories = ['All', 'Indian', 'Foreign', 'Trending', 'Premium', '4K', 'New', 'Popular'];
 
 const Header = ({ searchQuery, onSearchChange, selectedCategory, onCategoryChange }: HeaderProps) => {
   return (
