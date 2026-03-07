@@ -16,6 +16,8 @@ import TopRated from "./pages/TopRated";
 import Popular from "./pages/Popular";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Contact from "./pages/Contact";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +58,8 @@ const App = () => (
                   <Route path="/top-rated" element={<TopRated />} />
                   <Route path="/popular" element={<Popular />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/admin" element={<Admin />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

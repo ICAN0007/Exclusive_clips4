@@ -1,4 +1,4 @@
-import { Home, TrendingUp, Eye, Clock, Star, Flame } from 'lucide-react';
+import { Home, TrendingUp, Eye, Clock, Star, Flame, Mail, Shield } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import {
   Sidebar,
@@ -19,6 +19,8 @@ const menuItems = [
   { title: 'New Releases', url: '/new-releases', icon: Clock },
   { title: 'Top Rated', url: '/top-rated', icon: Star },
   { title: 'Popular', url: '/popular', icon: TrendingUp },
+  { title: 'Contact', url: '/contact', icon: Mail },
+  { title: 'Admin', url: '/admin', icon: Shield },
 ];
 
 const AppSidebar = () => {
