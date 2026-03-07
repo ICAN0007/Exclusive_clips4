@@ -3,6 +3,9 @@ import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Video, formatDuration } from '@/data/videos';
 import VideoCard from './VideoCard';
+import LikeShareBar from './LikeShareBar';
+import CommentsSection from './CommentsSection';
+import InContentAd from './InContentAd';
 import {
   Pagination,
   PaginationContent,
@@ -113,14 +116,15 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
         </div>
 
         {/* Video details */}
-        <div className="mb-12">
+        <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-black mb-4">{video.title}</h1>
-          <div className="flex flex-wrap gap-4 text-muted-foreground mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-4">
             <span>{formatDuration(video.duration)}</span>
             <span>•</span>
             <span>{video.views} views</span>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <LikeShareBar title={video.title} />
+          <div className="flex flex-wrap gap-3 mt-4">
             {video.tags.map(tag => (
               <span 
                 key={tag} 
@@ -131,6 +135,12 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
             ))}
           </div>
         </div>
+
+        {/* In-content ad */}
+        <InContentAd />
+
+        {/* Comments */}
+        <CommentsSection />
 
         {/* Recommended videos */}
         <div id="related-section">
