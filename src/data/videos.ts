@@ -10,6 +10,11 @@ export interface Video {
   addedAt?: string;
   hls?: string;
   embed?: string;
+  // Extended fields for sorting
+  uploadDate?: string;
+  likes?: number;
+  rating?: number;
+  comments?: number;
 }
 
 export const videos: Video[] = [
@@ -20,7 +25,11 @@ export const videos: Video[] = [
     src: "https://iframe.mediadelivery.net/play/582815/bf096e05-d0a9-4ec8-842a-8b3e8828ba04",
     duration: 942,
     views: "2.4M",
-    tags: ["Bunny Stream", "Ultra HD", "Premium", "4K"]
+    tags: ["Bunny Stream", "Ultra HD", "Premium", "4K"],
+    uploadDate: "2026-03-01",
+    likes: 4200,
+    rating: 4.8,
+    comments: 156,
   },
   {
     id: "bunny2",
@@ -29,7 +38,11 @@ export const videos: Video[] = [
     src: "https://iframe.mediadelivery.net/play/582815/07147408-e1a6-4ccf-a618-74d4494d24f1",
     duration: 1200,
     views: "1.8M",
-    tags: ["Bunny", "Exclusive", "HD", "Premium"]
+    tags: ["Bunny", "Exclusive", "HD", "Premium"],
+    uploadDate: "2026-02-28",
+    likes: 3100,
+    rating: 4.6,
+    comments: 98,
   },
   {
     id: "bunny3",
@@ -38,7 +51,11 @@ export const videos: Video[] = [
     src: "https://iframe.mediadelivery.net/play/582815/e9ff303b-7e3c-45f1-8a27-1b0bb16f95ce",
     duration: 1560,
     views: "3.2M",
-    tags: ["4K", "Bunny Stream", "Professional", "Exclusive"]
+    tags: ["4K", "Bunny Stream", "Professional", "Exclusive"],
+    uploadDate: "2026-02-25",
+    likes: 5800,
+    rating: 4.9,
+    comments: 230,
   },
   {
     id: "foreign1",
@@ -48,7 +65,11 @@ export const videos: Video[] = [
     duration: "12:30",
     views: "7.5k",
     tags: ["romantic", "cozy", "vibes"],
-    categories: ["Foreign", "Brazz"]
+    categories: ["Foreign", "Brazz"],
+    uploadDate: "2026-03-05",
+    likes: 320,
+    rating: 4.5,
+    comments: 42,
   },
   {
     id: "foreign2",
@@ -58,7 +79,11 @@ export const videos: Video[] = [
     duration: "15:45",
     views: "5.8k",
     tags: ["close", "connection", "youthful"],
-    categories: ["Foreign", "Brazz"]
+    categories: ["Foreign", "Brazz"],
+    uploadDate: "2026-03-06",
+    likes: 245,
+    rating: 4.3,
+    comments: 31,
   },
   {
     id: "foreign3",
@@ -68,7 +93,11 @@ export const videos: Video[] = [
     duration: "18:20",
     views: "3.7k",
     tags: ["romantic", "adventure"],
-    categories: ["Foreign", "Vix"]
+    categories: ["Foreign", "Vix"],
+    uploadDate: "2026-03-04",
+    likes: 180,
+    rating: 4.1,
+    comments: 18,
   },
   {
     id: "foreign4",
@@ -78,7 +107,11 @@ export const videos: Video[] = [
     duration: "14:10",
     views: "4.7k",
     tags: ["spontaneous", "energy"],
-    categories: ["Foreign", "Vix"]
+    categories: ["Foreign", "Vix"],
+    uploadDate: "2026-03-03",
+    likes: 210,
+    rating: 4.2,
+    comments: 25,
   },
   {
     id: "foreign5",
@@ -88,7 +121,11 @@ export const videos: Video[] = [
     duration: "22:15",
     views: "7.2k",
     tags: ["group", "moments", "energy"],
-    categories: ["Foreign", "Vix"]
+    categories: ["Foreign", "Vix"],
+    uploadDate: "2026-03-07",
+    likes: 390,
+    rating: 4.7,
+    comments: 55,
   },
   {
     id: "foreign6",
@@ -98,7 +135,11 @@ export const videos: Video[] = [
     duration: "16:40",
     views: "8.2k",
     tags: ["team", "energy"],
-    categories: ["Foreign", "Brazz"]
+    categories: ["Foreign", "Brazz"],
+    uploadDate: "2026-03-02",
+    likes: 410,
+    rating: 4.6,
+    comments: 48,
   },
   {
     id: "foreign7",
@@ -108,7 +149,11 @@ export const videos: Video[] = [
     duration: "19:55",
     views: "4.9k",
     tags: ["adventure", "journey"],
-    categories: ["Foreign", "Vix"]
+    categories: ["Foreign", "Vix"],
+    uploadDate: "2026-02-27",
+    likes: 230,
+    rating: 4.0,
+    comments: 22,
   },
   {
     id: "foreign8",
@@ -118,7 +163,11 @@ export const videos: Video[] = [
     duration: "13:25",
     views: "6.3k",
     tags: ["care", "comfort", "youthful"],
-    categories: ["Foreign", "Brazz"]
+    categories: ["Foreign", "Brazz"],
+    uploadDate: "2026-03-06",
+    likes: 290,
+    rating: 4.4,
+    comments: 35,
   },
   {
     id: "foreign9",
@@ -128,7 +177,11 @@ export const videos: Video[] = [
     duration: "17:30",
     views: "5.4k",
     tags: ["friends", "playful"],
-    categories: ["Foreign", "Vix"]
+    categories: ["Foreign", "Vix"],
+    uploadDate: "2026-02-26",
+    likes: 260,
+    rating: 4.3,
+    comments: 29,
   },
   {
     id: "foreign10",
@@ -138,7 +191,11 @@ export const videos: Video[] = [
     duration: "21:10",
     views: "7.8k",
     tags: ["group", "fun", "moments"],
-    categories: ["Foreign", "Brazz"]
+    categories: ["Foreign", "Brazz"],
+    uploadDate: "2026-03-07",
+    likes: 380,
+    rating: 4.6,
+    comments: 52,
   }
 ];
 

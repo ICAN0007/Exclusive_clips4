@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useViewTracker } from '@/hooks/useViewTracker';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Video, formatDuration } from '@/data/videos';
@@ -27,6 +28,7 @@ const RELATED_PER_PAGE = 8;
 
 const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  useViewTracker(video.id);
 
   // Get recommended videos matching current video's tags, then fill with others
   const recommendedVideos = useMemo(() => {
