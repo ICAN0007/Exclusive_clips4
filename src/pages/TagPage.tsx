@@ -75,7 +75,15 @@ const TagPage = () => {
       <Footer />
 
       {selectedVideo && (
-        <VideoPlayer video={selectedVideo} onClose={() => setSelectedVideo(null)} />
+        <VideoPlayer
+          video={selectedVideo}
+          allVideos={filteredVideos}
+          onBack={() => setSelectedVideo(null)}
+          onVideoClick={(id) => {
+            const v = filteredVideos.find(v => v.id === id);
+            if (v) setSelectedVideo(v);
+          }}
+        />
       )}
     </div>
   );

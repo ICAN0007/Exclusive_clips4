@@ -61,6 +61,7 @@ const App = () => (
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/admin" element={<Admin />} />
+                  <Route path="/tag/:tag" element={<TagPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
