@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heart, Eye, Calendar } from 'lucide-react';
 import { Video, formatDuration } from '@/data/videos';
 
@@ -8,6 +9,7 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ video, onClick }: VideoCardProps) => {
+  const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(video.likes || 0);
 
@@ -98,7 +100,11 @@ const VideoCard = ({ video, onClick }: VideoCardProps) => {
             {video.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/10 text-muted-foreground hover:bg-coral/20 hover:text-coral transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(`/tag/${encodeURIComponent(tag)}`);
+                }}
+                className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/10 text-muted-foreground hover:bg-coral/20 hover:text-coral transition-colors cursor-pointer"
               >
                 {tag}
               </span>
