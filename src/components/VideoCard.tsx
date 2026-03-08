@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heart, Eye, Calendar } from 'lucide-react';
 import { Video, formatDuration } from '@/data/videos';
 

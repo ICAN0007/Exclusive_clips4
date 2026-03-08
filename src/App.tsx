@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import TagPage from "./pages/TagPage";
 
 const queryClient = new QueryClient();
 
