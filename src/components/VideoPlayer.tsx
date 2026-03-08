@@ -29,6 +29,7 @@ const RELATED_PER_PAGE = 8;
 
 const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
   useViewTracker(video.id);
 
   // Get recommended videos matching current video's tags, then fill with others
