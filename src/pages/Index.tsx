@@ -1,13 +1,22 @@
 import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { Flame, Eye, Clock, Star } from 'lucide-react';
 import ParticleCanvas from '@/components/ParticleCanvas';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import FeaturedSection from '@/components/FeaturedSection';
+import TrendingSlider from '@/components/TrendingSlider';
 import VideoGrid from '@/components/VideoGrid';
 import VideoPlayer from '@/components/VideoPlayer';
 import Footer from '@/components/Footer';
 import { SideBannerAd } from '@/components/AdScripts';
 import { videos, Video } from '@/data/videos';
+import { 
+  sortByTrending, 
+  sortByMostViewed, 
+  sortByNewest, 
+  sortByTopRated 
+} from '@/lib/videoSorting';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,6 +37,13 @@ const Index = () => {
   });
 
   const allVideos = videosFromJson?.length ? videosFromJson : videos;
+
+  // Sorted video lists for different sections
+  const trendingVideos = useMemo(() => sortByTrending(allVideos).slice(0, 10), [allVideos]);
+  const mostViewedVideos = useMemo(() => sortByMostViewed(allVideos).slice(0, 10), [allVideos]);
+  const newReleases = useMemo(() => sortByNewest(allVideos).slice(0, 10), [allVideos]);
+  const topRatedVideos = useMemo(() => sortByTopRated(allVideos).slice(0, 10), [allVideos]);
+  const featuredVideo = trendingVideos[0];
 
   const allTags = useMemo(() => {
     const tagSet = new Set<string>();
@@ -86,6 +102,46 @@ const Index = () => {
 
       <main className="max-w-[1400px] mx-auto px-[5%] pb-24 relative z-10">
         <HeroSection onScrollToVideos={handleScrollToVideos} />
+        
+        {/* Featured Hero Video */}
+        {featuredVideo && (
+          <FeaturedSection 
+            video={featuredVideo} 
+            onVideoClick={handleVideoClick} 
+          />
+        )}
+
+        {/* Trending Today Slider */}
+        <TrendingSlider 
+          videos={trendingVideos}
+          title="Trending Today"
+          icon={<Flame className="w-6 h-6 text-coral" />}
+          onVideoClick={handleVideoClick}
+        />
+
+        {/* Most Viewed This Week */}
+        <TrendingSlider 
+          videos={mostViewedVideos}
+          title="Most Viewed This Week"
+          icon={<Eye className="w-6 h-6 text-coral" />}
+          onVideoClick={handleVideoClick}
+        />
+
+        {/* New Releases */}
+        <TrendingSlider 
+          videos={newReleases}
+          title="New Releases"
+          icon={<Clock className="w-6 h-6 text-coral" />}
+          onVideoClick={handleVideoClick}
+        />
+
+        {/* Top Rated */}
+        <TrendingSlider 
+          videos={topRatedVideos}
+          title="Top Rated"
+          icon={<Star className="w-6 h-6 text-gold" />}
+          onVideoClick={handleVideoClick}
+        />
         
         <div className="flex gap-6">
           <div className="flex-1">
