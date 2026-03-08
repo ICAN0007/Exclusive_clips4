@@ -9,6 +9,7 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ video, onClick }: VideoCardProps) => {
+  const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(video.likes || 0);
 
