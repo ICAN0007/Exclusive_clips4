@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useViewTracker } from '@/hooks/useViewTracker';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -28,6 +29,7 @@ const RELATED_PER_PAGE = 8;
 
 const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
   useViewTracker(video.id);
 
   // Get recommended videos matching current video's tags, then fill with others
@@ -129,8 +131,12 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
           <div className="flex flex-wrap gap-3 mt-4">
             {video.tags.map(tag => (
               <span 
-                key={tag} 
-                className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground"
+                key={tag}
+                onClick={() => {
+                  onBack();
+                  navigate(`/tag/${encodeURIComponent(tag)}`);
+                }}
+                className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground hover:bg-coral/20 hover:text-coral transition-colors cursor-pointer"
               >
                 {tag}
               </span>
