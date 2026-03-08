@@ -131,8 +131,12 @@ const VideoPlayer = ({ video, allVideos, onBack, onVideoClick }: VideoPlayerProp
           <div className="flex flex-wrap gap-3 mt-4">
             {video.tags.map(tag => (
               <span 
-                key={tag} 
-                className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground"
+                key={tag}
+                onClick={() => {
+                  onBack();
+                  navigate(`/tag/${encodeURIComponent(tag)}`);
+                }}
+                className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground hover:bg-coral/20 hover:text-coral transition-colors cursor-pointer"
               >
                 {tag}
               </span>
