@@ -18,7 +18,7 @@ interface VideoGridProps {
   perPage?: number;
 }
 
-const VideoGrid = ({ videos, onVideoClick, title, perPage = 20 }: VideoGridProps) => {
+const VideoGrid = ({ videos, onVideoClick, title, perPage = 18 }: VideoGridProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Reset to page 1 when videos change
@@ -60,7 +60,8 @@ const VideoGrid = ({ videos, onVideoClick, title, perPage = 20 }: VideoGridProps
         </span>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+      {/* 1 column mobile, 2 tablet, 3 desktop with increased gap */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {currentVideos.map(video => (
           <VideoCard 
             key={video.id} 
