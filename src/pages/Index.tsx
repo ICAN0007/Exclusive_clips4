@@ -154,9 +154,9 @@ const Index = () => {
       </main>
 
       {/* Browse Sections */}
-      <section className="max-w-[1400px] mx-auto px-[5%] pb-8 relative z-10">
-        <h3 className="text-xl font-bold text-foreground mb-4">Browse</h3>
-        <div className="flex flex-wrap gap-3">
+      <section className="max-w-[1400px] mx-auto px-3 sm:px-[5%] pb-6 sm:pb-8 relative z-10">
+        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Browse</h3>
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {[
             { label: '🔥 Trending', href: '/trending' },
             { label: '👁️ Most Viewed', href: '/most-viewed' },
@@ -167,7 +167,7 @@ const Index = () => {
             <a
               key={item.href}
               href={item.href}
-              className="px-5 py-2.5 rounded-full text-sm font-bold bg-white/10 text-foreground hover:bg-gradient-to-r hover:from-coral hover:to-gold hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent"
+              className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-muted text-foreground hover:bg-gradient-to-r hover:from-coral hover:to-gold hover:text-primary-foreground transition-all duration-300 border border-border hover:border-transparent"
             >
               {item.label}
             </a>
@@ -176,8 +176,8 @@ const Index = () => {
       </section>
 
       {/* Tags Section */}
-      <section className="max-w-[1400px] mx-auto px-[5%] pb-12 relative z-10">
-        <h3 className="text-xl font-bold text-foreground mb-4">Browse by Tags</h3>
+      <section className="max-w-[1400px] mx-auto px-3 sm:px-[5%] pb-8 sm:pb-12 relative z-10">
+        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Browse by Tags</h3>
         <div className="flex flex-wrap gap-2">
           {allTags.map((tag) => (
             <button
