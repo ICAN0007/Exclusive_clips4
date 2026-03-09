@@ -100,7 +100,7 @@ const Index = () => {
         onCategoryChange={setSelectedCategory}
       />
 
-      <main className="max-w-[1400px] mx-auto px-3 sm:px-[5%] pb-12 sm:px-[5%] pb-12 sm:pb-24 relative z-10">
+      <main className="max-w-[1400px] mx-auto px-3 sm:px-[5%] pb-12 sm:px-[5%] pb-12 sm:px-[5%] pb-12 sm:pb-24 relative z-10">
         <HeroSection onScrollToVideos={handleScrollToVideos} />
         
         {/* Featured Hero Video */}
